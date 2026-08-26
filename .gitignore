@@ -5,12 +5,12 @@ __pycache__/
 
 .env
 
-data/raw/*
-data/processed/*
+# data/raw/*
+# data/processed/*
 
-models/*.joblib
-models/*.pkl
+# models/*.joblib
+# models/*.pkl
 
 mlruns/
 
-logs/*.log
+# logs/*.log

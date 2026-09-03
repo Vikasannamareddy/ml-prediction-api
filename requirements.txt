@@ -10,3 +10,5 @@ pydantic
 joblib 
 pytest
 openpyxl
+streamlit
+flask

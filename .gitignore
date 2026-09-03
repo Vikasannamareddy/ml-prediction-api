@@ -12,5 +12,4 @@ __pycache__/
 # models/*.pkl
 
 mlruns/
-
-# logs/*.log
+logs/*.log

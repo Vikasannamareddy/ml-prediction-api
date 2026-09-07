@@ -60,19 +60,16 @@ THRESHOLD_PATH = os.path.join(
 # Logging Configuration
 # -----------------------------
 
-LOG_PATH = os.path.join(
-    os.path.dirname(__file__),
-    "..",
-    "logs",
-    "predictions.log"
-)
+LOG_DIR = os.path.join(os.path.dirname(__file__), "..", "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
+
+LOG_PATH = os.path.join(LOG_DIR, "predictions.log")
 
 logging.basicConfig(
     filename=LOG_PATH,
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
-
 logger = logging.getLogger(__name__)
 
 
@@ -414,4 +411,12 @@ with st.form("customer_form"):           #Without a form, Streamlit can rerun th
                 st.error(
                     f"Prediction failed: {str(e)}"
                 )
+    with st.sidebar:
+        st.header("📊 Model Information")
+
+        st.write("**Model:** Gradient Boosting")
+        st.write("**Estimators:** 100")
+        st.write("**Learning Rate:** 0.05")
+        st.write("**Max Depth:** 3")
+        st.write(f"**Threshold:** {threshold}")
 st.info(f"Model prediction threshold: {threshold}")
